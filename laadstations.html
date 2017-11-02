@@ -12,7 +12,10 @@
     <link href="css/custom.css" rel="stylesheet" type="text/css">
     <link href="css/menu.css" rel="stylesheet" type="text/css">
     <link href="css/aos.css" rel="stylesheet" type="text/css">
-    <title>Tarieven</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+          integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+          crossorigin=""/>
+    <title>Laadstations</title>
 </head>
 <body>
 
@@ -50,15 +53,14 @@
         <div class="row top-row pt-5 pb-3">
             <div class="col-xs-12 col-md-6 offset-md-3">
                 <h1 class="big-title text-center" data-aos="fade" data-aos-easing="ease-in-sine" data-aos-duration="800">
-                    Handiger, sneller & <span class="orange">goedkoper</span>.
+                    <span class="orange">Gent St. Pieters</span>,  <span class="orange">Korenmarkt</span> & Campus <span class="orange">Mariakerke</span>.
                 </h1>
             </div>
         </div>
         <div class="row bottom-row pb-5">
-            <figure class="figure image-container col-xs-12 col-lg-8 offset-lg-2 pt-5" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="1200" data-aos-delay="800">
-                <img class="img-fluid" src="assets/img/frontpage.png">
-                <figcaption class="text-center figure-caption mt-4 pb-3">Artebike, kom met een elektrische fiets naar de campus.</figcaption>
-            </figure>
+            <div class="figure image-container col-6 offset-3 col-md-2 offset-md-5 pt-5" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="1200" data-aos-delay="800">
+                <img class="img-fluid col-6 offset-3" src="assets/img/icons/lightningbadge.svg">
+            </div>
         </div>
 
         <!--<div class="row">-->
@@ -68,34 +70,21 @@
         <div class="row col-xs-12 col-md-8 offset-md-2">
             <ul class="list-unstyled">
                 <li class="media mb-5" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="800">
-                    <img class="mr-3 text-icon col-lg-1 col-sm-2 col-3" src="assets/img/icons/bliksem.svg">
+                    <img class="mr-3 text-icon col-lg-1 col-sm-2 col-3" src="assets/img/icons/arrows.svg">
                     <div class="media-body">
-                        <h4 class="mt-0 mb-2">Met een <span class="orange">elektrische fiets</span> van en naar de campus.</h4>
+                        <h4 class="mt-0 mb-2">Van <span class="orange">centrum Gent</span> naar <span class="orange">Mariakerke</span> van en naar de campus en terug.</h4>
                         Verplaats je snel vanuit centrum Gent richting Campus Mariakerke met de elektrische fietsen van Artebike. Pak een fiets uit een van de Artebike-stations, fiets naar je bestemming en plaats daar je elektrische fiets terug in een station. Handig, snel en goed voor het milieu!                    </div>
-                </li>
-                <li class="media my-4 mb-5" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="800">
-                    <img class="mr-3 text-icon col-lg-1 col-sm-2 col-3" src="assets/img/icons/geld.svg">
-                    <div class="media-body">
-                        <h4 class="mt-0 mb-2">Het is <span class="orange">goedkoper</span> & <span class="orange">sneller</span> dan de bus.</h4>
-                        Je kan een abonnement aanschaffen voor 1 of 2 semesters of gewoon betalen voor een enkele rit (60 min.). De tarieven kan je hier bekijken.
-
-                        Met de pedelec (tot 25km/u) fiets je van het station tot de campus amper 18 minuten. Met onze e-bike (tot 45km/u) ben je in Mariakerke op amper 10 minuten.
-                        Dit is een pak sneller dan een sneldienst dat enkel rijdt om 8u en 16u. Of een stopdienst die er gemiddeld zelf 35 minuten over doet!            </div>
-                </li>
-                <li class="media mb-5" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="800">
-                    <img class="mr-3 text-icon col-lg-1 col-sm-2 col-3" src="assets/img/icons/blad.svg">
-                    <div class="media-body">
-                        <h4  class="mt-0 mb-2">Goed voor het <span class="orange">milieu</span> & je <span class="orange">gezondheid</span>.</h4>
-                        De elektrische fiets is een milieuvriendelijk vervoermiddel. Hij veroorzaakt nog geen twee procent van de CO2-uitstoot van een auto.
-
-                        Fietsen is gezond: ook de lichte beweging die je tijdens het fietsen maakt, is goed voor de gezondheid. Zo kan je die pita van de dag ervoor er af sporten.
-                        Maar met elektrisch fietsen fiets je lichter en comfortabeler. Je maakt dezelfde bewegingen, maar hoeft minder kracht te zetten, dus zo hoef je ook niet bezweet toe te komen in de les.              </div>
                 </li>
             </ul>
         </div>
     </main>
+<main class="row container-fluid">
+    <div id="mapid">
 
-    <footer class="container-fluid mt-5 black-bg">
+    </div>
+</main>
+
+    <footer class="container-fluid black-bg">
         <div class="row">
             <div class="row col-xs-12 col-md-8 offset-md-2 mt-5 mb-5">
                 <div class="col-10 offset-1">
@@ -119,5 +108,9 @@
     });
 </script>
 <script src="js/main.js"></script>
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+        integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+        crossorigin=""></script>
+<script src="js/map.js"></script>
 </body>
 </html>
